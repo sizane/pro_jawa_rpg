@@ -123,19 +123,37 @@ public class Inventory {
         System.out.println("Kamu mendapatkan " + namaItem);
     }
 
-    public void pakaiSenjata(String namaSenjata, int statDiberikan) {
-        if (tas.contains(namaSenjata)) {
-            this.senjataAktif = namaSenjata;
-            this.bonusStat = statDiberikan;
-            System.out.println(name +" memakai senjata " + namaSenjata);
-        } else {
-            System.out.println("Senjata tidak ada di dalam tas");
-        }
+    public void lepasSenjata() {
+    if (this.senjataAktif.equals("Kosong")) {
+        System.out.println("Kamu tidak sedang memakai senjata");
+    } else {
+        System.out.println("Kamu melepas senjata " + this.senjataAktif);
+        tas.add(this.senjataAktif);
+        this.senjataAktif = "Kosong";
+        this.bonusStat = 0;
+        System.out.println("Senjata kembali ke dalam tas");
     }
+}
 
-    public void lepasSenjata(String namaSenjata, int statDiberikan) {
-        if ()
+public void pakaiSenjata(String namaSenjata, int statDiberikan) {
+    if (tas.contains(namaSenjata)) {
+        if (!this.senjataAktif.equals("Kosong")) {
+            lepasSenjata();
+        }
+        this.senjataAktif = namaSenjata;
+        this.bonusStat = statDiberikan;
+        tas.remove(namaSenjata);
+        System.out.println("Kamu memakai senjata " + namaSenjata);
+    } else {
+        System.out.println("Senjata tidak ada di dalam tas");
     }
+}
+}
+
+public class battle() {
+    
+
+    
 }
 public class rpg_java_pro {
     public static void main(String[] args) {
